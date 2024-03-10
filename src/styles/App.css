@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
+:root{
+  --primary-color:#181818;
+  --secondary-color:#212121;
+  --text-color:#ffffff;
+}
+body{
+  margin: 0;
+  padding: 0;
+  background-color:var(--secondary-color);
+  color: var(--text-color);
+  font-family: Arial,sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.global-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+.left-sidebar{
+  width:18%;
+  height: 100%;
+  border-right: 0.5px solid #aaaaaa;
+}
+.left-sidebar .list-group-item {
+  background-color: var(--primary-color);
+}
+.left-sidebar .list-group-item:hover {
+  background-color: #3d3d3d;
+  border-radius: 5px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.left-sidebar .list-group-item span{
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+.right-sidebar{
+  width: 80%;
+  background-color: var(--secondary-color);
+}
+#download {
+  background-color: inherit;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+}
+
+#download h1 {
+  font-weight: 700;
+  line-height: 2;
+}
+
+#download h2 {
+  font-weight: 500;
+  line-height: 3;
+}
+
+#download button {
+  background-color: rgb(255, 255, 255);
+  padding: 12px;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 35px;
+}
+
+#download button:hover {
+  transform: scale(1.02);
+}
+
+@media (width <= 650px) {
+  #download button {
+      width: 100%;
+      margin-bottom: 10px; 
+  }
+}
+.music-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:5px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.musicCard{
+  height: 200px;
+  width: 200px;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.artist{
+  font-size: 14px;
+  width: 45%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.music-title{
+  font-size: 16px;
+}
+.nav-item{
+  list-style: none;
+}
+a{
+  color: black;
+}
+.left-nav{
+  margin-right: 95px;
+}
+.fa-circle-play{
+  margin: 0 auto;
+  display: block;
+  font-size: 24px;  
+}
+
+.icon-music{
+  padding: 12px;
+  font-weight: 700;
+  font-family: Roboto,Noto Naskh Arabic UI,Arial,sans-serif;;
+}
+.container{
+  margin-top: 100px;
+}
+.btn-primary,.btn-primary:hover{
+  background-color: #d60017;
+  border-color: #d60017;
+}
+
+.music-player{
+  bottom:0;
+  position:fixed;
+  width:100%;
+  height: 5rem;
+  background-color: #d60017;
+  display: flex;
   color: white;
-}
+  align-items: center;
+  gap:10px;
+  padding-left: 10px;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
