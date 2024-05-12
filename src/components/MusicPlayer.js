@@ -42,6 +42,4 @@ export const MusicPlayer = (props) => {
     </section>
   </>
   )
-
-
 }

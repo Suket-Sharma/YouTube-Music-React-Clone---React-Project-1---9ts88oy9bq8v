@@ -60,12 +60,12 @@ function Library() {
             {getList.map((obj, index) => {
               return (
                 <div key={index} className="musicCard">
-                  <img
-                    src={obj.thumbnail}
-                    height={"150"}
-                    width={"150"}
-                    className="bannerImg"
-                  />
+                    <img
+                      src={obj.thumbnail}
+                      height={"150"}
+                      width={"150"}
+                      className="bannerImg"
+                    />
                   <div className="music-title">
                     {obj.title}{" "}
                     <i

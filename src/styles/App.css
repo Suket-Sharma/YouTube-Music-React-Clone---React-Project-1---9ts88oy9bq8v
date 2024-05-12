@@ -1,3 +1,4 @@
+
 :root{
   --primary-color:#181818;
   --secondary-color:#212121;
@@ -11,27 +12,87 @@ body{
   font-family: Arial,sans-serif;
 }
 
+
 .global-container{
   display: flex;
 }
 .left-sidebar{
-  width:18%;
-  height: 100%;
+  width:18%;  
   border-right: 0.5px solid #aaaaaa;
-}
-.left-sidebar .list-group-item {
   background-color: var(--primary-color);
+  position: static;
+}
+.top-music{
+  width: 80%;
+}
+.MenuIcon{
+  margin:0 20px;
+}
+.PlayCircleOutlineIcon{
+  padding: 5px;
+  font-size: 24px;
+}
+.HomeRoundedIcon{
+  margin:0 20px;
+}
+.ExploreOutlinedIcon{
+  margin:0 20px;
+  
+}
+.LibraryMusicOutlinedIcon{
+  margin:0 20px;
+}
+.PlayCircleOutlineSharpIcon{
+  margin:0 20px;
+}
+.span-music{
+  font-size: 24px;
+  margin:0 5px;
+  color:var(--text-color);
+}
+
+.left-sidebar .list-group-item  {
+  background-color: var(--primary-color);
+  border: none;
+  text-align: left;
 }
 .left-sidebar .list-group-item:hover {
   background-color: #3d3d3d;
-  border-radius: 5px;
-  margin: 0 10px;
+  border-radius: 5px; 
   text-decoration: none;
+}
+.left-sidebar ul{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--secondary-color);
 }
 .left-sidebar .list-group-item span{
   color: var(--text-color);
   text-decoration: none;
   font-weight: 700;
+}
+.newPlaylist{
+  width: 80%;
+  border-radius: 20px;
+  background-color: #3d3d3d;
+  margin: 30px 20px;
+  text-align: center;
+}
+.likedMusic  ,.Episodes-for-later{
+  margin-left: 20px;
+}
+.likedMusic h5 ,.Episodes-for-later h5{
+  font-size:15px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.likedMusic p ,.Episodes-for-later p{
+  font-size:12px;
+  color:#aaaaaa;
+  font-weight: 400;
+  
 }
 .right-sidebar{
   width: 80%;
@@ -138,3 +199,280 @@ a{
   padding-left: 10px;
 
 }
+/* Upgrade Page */
+.upgrade-Navbar{
+  width: 100%;
+  height: 64px;
+  background-color: var(--primary-color);
+}
+.upgrade-section1{
+  width: 100%;
+  height: 630px;
+  background-color: #3d3d3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.yt-logo{
+  font-size: 70px;
+  font-family: Roboto, Noto Naskh Arabic UI, Arial, sans-serif;
+  margin-bottom: 50px;
+  font-weight: 700;
+
+}
+.upgrade-section1 .get-music{
+  margin-bottom: 30px;
+}
+.upgrade-section1 .get-music p{
+  font-size: 30px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.upgrade-section1 .premium-btn{
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: rgb(97, 175, 231) ;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.upgrade-section1  .premium-plan p{
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+.upgrade-section1 p span{
+  font-size: 15px;
+  font-weight: bold;  
+}
+.upgrade-section1 .learn-more{
+  margin-top: 20px;
+}
+.upgrade-section1 span{
+  color: rgb(97, 175, 231);
+  
+}
+
+.upgrade-section2{
+  width: 100%;
+  height: 262px;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(1,1fr);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 10px;
+  gap: 15px;
+  text-align: center;
+}
+
+.upgrade-section2 .one{
+  width: 100%;
+  height: 100px;
+}
+.upgrade-section2 .two{
+  width: 100%;
+  height: 80px;
+}
+.upgrade-section2 .three{
+  width: 100%;
+  height: 72px;
+}
+
+.upgrade-section3{
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+.upgrade-section3 .text{
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  color: #3d3d3d;
+}
+.upgrade-section3 img{
+  width: 100%;
+  height: 100%;  
+}
+
+.upgrade-section6{
+  width: 100%;
+  height: 262px;
+  background-color: var(--primary-color);
+}
+.upgrade-section6 p{
+  padding-top:80px;
+  padding-left: 300px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+.upgrade-section6 span{
+  color: rgb(49, 49, 218);
+}
+
+.right-sidebar-plan{
+  width: 80%;
+  background-color: var(--primary-color);
+}
+.yt-Membership{
+  width: 700px;
+  height: auto;
+  margin: 0 auto;
+  
+}
+.yt-Membership p{
+  color:#aaaaaa;
+  font-size: 15px;
+}
+.yt-music-logo{
+  height: 130px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  
+}
+h3,h5{
+  margin: 0;
+  padding: 0;
+}
+.yt-name{
+  height: 57px;
+}
+.prepaid-plan{
+  height: 49px;
+}
+.monthly-plans{
+  height: 222px;
+  
+}
+.yearly,.three-month,.one-month{
+  border: 0.5px solid #3d3d3d;
+  height: 74px;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  
+  
+
+}
+.subscription-plan{
+  height: 89px;
+  padding: 20px 0px 15px 0;
+  
+}
+.free-monthly{
+  height: 95px;
+  border: 1px solid #3d3d3d;
+  padding: 10px 0 15px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.free-monthly .free-monthly-right button{
+  margin:20px 10px ;
+  border-radius: 20px;
+  background-color: var(--secondary-color);
+  border:0.5px solid #aaaaaa;
+  color:rgb(97, 175, 231);
+  padding: 5px 10px;
+}
+.policy p{
+  margin-top: 15px;
+  font-size: 12px;
+  color:#aaaaaa;
+  font-family: sans-serif;
+  line-height: 1.2;
+  padding-right: 15px;
+  margin-bottom: 70px;
+
+}
+.policy span{
+  color:rgb(97, 175, 231); ;
+}
+.song-component-container{
+  width: 80%;
+  margin: 0 auto;
+  
+
+}
+.song-component-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:5px;
+  justify-content: center;
+}
+.songMusicCard{
+  display: flex;
+  height: 50px;
+  width: 48%;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.songMusicCrad .song-artist{
+  font-size: 14px;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.songMusicCrad .song-music-title{
+  font-size: 16px;  
+}
+.song-img,.music-artist{
+  margin: 0;
+  padding: 5px;
+}
+.user-name {
+  align-items: left;
+  margin: 0;
+  padding: 0;
+}
+.album-songs-container{
+  width: 80%;
+  margin:0 auto;
+  
+}
+.album-details{
+  padding-top: 10%;
+  display: flex;
+  
+}
+.album-name{
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.album-name p,h{
+  margin: 0;
+  padding: 0;
+}
+.album-songs{
+  display: flex;
+  margin-top: 80px;
+  justify-content: space-between;
+}
+.album-btn{
+  margin-top: 30px;
+  border-radius: 60px;
+  
+}
+.btn-play ,.btn-library{
+  border-radius: 60px;
+  padding: 5px 10px;
+  border: none;
+  background-color: white;
+}
+.btn-library{
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  font-weight: 700;
+}
+
+

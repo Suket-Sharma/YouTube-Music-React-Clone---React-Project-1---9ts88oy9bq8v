@@ -6,6 +6,9 @@ import Library from "../pages/Library";
 import Register from "../pages/Register";
 import Navbar from "../components/Navbar";
 import { useUser } from "../providers/UserProviders";
+import Upgrade from "../pages/Upgrade";
+import PremiumPlan from "../pages/PremiumPlan";
+import AlbumSongs from "../pages/albumSongs";
 
 function App() {
 
@@ -25,6 +28,11 @@ function App() {
         <Route path="/" element={<Home/>} /> 
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/upgrade" element={<Upgrade/>}/>
+        <Route path="/premiumplan" element={<PremiumPlan/>}/>
+        <Route path="/albumSongs" element={<AlbumSongs/>}/>
+
+
         <Route path="/library" element={
         <ProtectedRoute>
           <Library/>

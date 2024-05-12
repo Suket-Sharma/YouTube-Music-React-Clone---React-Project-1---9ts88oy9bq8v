@@ -6,10 +6,10 @@ import { MusicPlayer } from "../components/MusicPlayer";
 import Navbar from "../components/Navbar";
 import { useUser } from "../providers/UserProviders";
 import { Link } from "react-router-dom";
-import SongComponent from  "../components/SongComponent";
-import AlbumPage from "../components/album";
-import animal from "../images/animal.jpg"
-import OldSongs from "../components/OldSongs";
+import SongComponent from "../components/SongComponent";
+import animal from "../images/animal.jpg";
+import Button from "@mui/material/Button";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 function Home() {
   const [getData, setData] = useState([]);
@@ -46,26 +46,6 @@ function Home() {
     }
   };
 
-  const onFilterSelection = async (input) => {
-   console.log(input);
-   let url;
-   const queryString = {
-     featured: input
-   }
-   axios.get("https://academics.newtonschool.co/api/v1/music/song", {
-     params: {
-       filter: JSON.stringify(queryString)
-     },
-     headers: {
-      projectID: "f104bi07c490",
-    },
-   }).then((response) => {
-     setData(response.data.data);
-   }).catch((error) => {
-     console.log(error)
-   })
- }
-
   const onSearchDetails = (event) => {
     const queryString = {
       title: event.target.value,
@@ -76,8 +56,8 @@ function Home() {
           search: JSON.stringify(queryString),
         },
         headers: {
-         projectID: "f104bi07c490",
-       },
+          projectID: "f104bi07c490",
+        },
       })
       .then((response) => {
         setData(response.data.data);
@@ -88,7 +68,6 @@ function Home() {
   };
 
   const onMusicHandler = (index) => {
-  
     console.log(index);
     let list = getData[index];
     setMusic(list);
@@ -151,23 +130,33 @@ function Home() {
             </div>
           </nav>
 
-          <div id="download" style={{ width: "100%" }}>
-            <section>
-              <button onClick={() => onFilterSelection("Trending songs")}>
-                Trending songs
-              </button>
-              <button onClick={() => onFilterSelection("Top 50 of this month")}>
-                Top 50 of this month
-              </button>
-              <button onClick={() => onFilterSelection("Top 20 of this week")}>
-                Top 20 of this week
-              </button>
-            </section>
+          <div className="album-songs-container">
+            <div className="album-details">
+              <div>
+                <img src={animal} style={{ width: "264px", height: "264px" }} />
+              </div>
+              <div className="album-name">
+                <h1>ANIMAL - HINDI</h1>
+                <p>Album • Various Artists • 2023</p>
+                <p>8 songs • 31 minutes</p>
+                <div className="album-btn">
+                  <button className="btn-play">
+                    lay
+                  </button>
+                  <button className="btn-library">save to library</button>
+                </div>
+              </div>
+            </div>
+            <div className="album-songs">
+              <p className="song-no">1</p>
+              <p className="song-name">Arjan Vailly</p>
+              <p className="song-artist">Bhupinder Babbal</p>
+              <p className="song-played">266M Plays</p>
+              <p className="song-time">2:30</p>
+            </div>
           </div>
-          
-          
-          <h2 style={{marginLeft:"30px"}}>New Release</h2>
-          <div className="music-container">
+
+          {/* <div className="music-container">
             {getData.map((obj, index) => {
               return (
                 <MusicCard
@@ -180,13 +169,9 @@ function Home() {
                 />
               );
             })}
-          </div>
-          <AlbumPage/>
-          <OldSongs/>
-          <SongComponent/>
+          </div> */}
         </div>
       </div>
-      
       {getMusic && (
         <MusicPlayer
           title={getMusic.title}
