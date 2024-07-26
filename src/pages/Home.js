@@ -154,19 +154,43 @@ function Home() {
           <div id="download" style={{ width: "100%" }}>
             <section>
               <button onClick={() => onFilterSelection("Trending songs")}>
-                Trending songs
+                Trending
               </button>
               <button onClick={() => onFilterSelection("Top 50 of this month")}>
-                Top 50 of this month
+                Top 50 
               </button>
               <button onClick={() => onFilterSelection("Top 20 of this week")}>
-                Top 20 of this week
+                Top 20
+              </button>
+              <button onClick={() => onFilterSelection("Soul soother")}>
+              Soul soother
+              </button>
+              <button onClick={() => onFilterSelection("Evergreen melodies")}>
+              Feel Good
+              </button>
+              <button onClick={() => onFilterSelection("romantic")}>
+              Romance
+              </button>
+              <button onClick={() => onFilterSelection("sad")}>
+              Podcast
+              </button>
+              <button onClick={() => onFilterSelection("excited")}>
+              Relax
+              </button>
+              <button onClick={() => onFilterSelection("happy")}>
+              Energize
+              </button>
+              <button onClick={() => onFilterSelection("podcast")}>
+              Party
+              </button>
+              <button onClick={() => onFilterSelection("Soul soother")}>
+              Commute
               </button>
             </section>
           </div>
           
           
-          <h2 style={{marginLeft:"30px"}}>New Release</h2>
+          <h2 style={{margin:"30px"}}>New Release</h2>
           <div className="music-container">
             {getData.map((obj, index) => {
               return (
@@ -196,6 +220,7 @@ function Home() {
           audio_url={getMusic.audio_url}
         />
       )}
+      
     </>
   );
 }

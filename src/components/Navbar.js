@@ -9,19 +9,17 @@ function Navbar() {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('name');
   }
-
   
-
   return (
     <>
       <nav className="navbar  navbar-expand-md navbar-light bg-black">
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <input
-            className="form-control  search"
+            className="form-control  form-search "
             type="search"
             placeholder="Search songs, albums, artist, podcasts"
             aria-label="Search"
-            style={{ width: "480px", height: "42px" }}
+            
           />
           <li className="nav-item dropdown my-2 my-lg-0 left-nav">
             <div

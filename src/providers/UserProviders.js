@@ -21,6 +21,7 @@ export const UserProvider = ({children})=>{
     const object={
         getToken,
         getName,
+        setName,
         onTokenHandler,
         onNameHandler
     }

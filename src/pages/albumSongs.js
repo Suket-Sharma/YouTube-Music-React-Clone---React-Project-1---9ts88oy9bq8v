@@ -1,22 +1,21 @@
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import animal from "../images/animal.jpg"; // Replace with your actual path
 import Sidebar from "../components/Sidebar";
-import MusicCard from "../components/MusicCard";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { MusicPlayer } from "../components/MusicPlayer";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 import { useUser } from "../providers/UserProviders";
-import { Link } from "react-router-dom";
-import SongComponent from "../components/SongComponent";
-import animal from "../images/animal.jpg";
-import Button from "@mui/material/Button";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { MusicPlayer } from "../components/MusicPlayer";
 
-function Home() {
-  const [getData, setData] = useState([]);
+function AlbumSongs() {
+  const [getList, setList] = useState([]);
+  const { _id } = useParams();
+  const [album, setAlbum] = useState({});
+  const [songs, setSongs] = useState([]);
+  const [artist, setArtist] = useState({});
   const [getMusic, setMusic] = useState(null);
   const { getToken, getName, onTokenHandler, onNameHandler } = useUser();
-  const [getSearch, setSearch] = useState("");
-  const [getOriginalData, setOriginalData] = useState([]);
+
   const logoutHandler = () => {
     onTokenHandler(null);
     onNameHandler(null);
@@ -24,164 +23,143 @@ function Home() {
     sessionStorage.removeItem("name");
   };
 
-  useEffect(() => {
-    musicList();
-  }, []);
-
-  const musicList = async () => {
-    try {
-      const response = await axios.get(
-        "https://academics.newtonschool.co/api/v1/music/song?limit=5",
-        {
-          headers: {
-            projectID: "f104bi07c490",
-          },
-        }
-      );
-      console.log(response.data.data);
-      setData(response.data.data);
-      setOriginalData(response.data.data);
-    } catch (err) {
-      console.log(err);
-    }
+  const onMusicHandler = (song) => {
+    // console.log(index);
+    // let list = getData[index];
+    setMusic(song);
   };
 
-  const onSearchDetails = (event) => {
-    const queryString = {
-      title: event.target.value,
-    };
-    axios
-      .get("https://academics.newtonschool.co/api/v1/music/song", {
-        params: {
-          search: JSON.stringify(queryString),
-        },
-        headers: {
-          projectID: "f104bi07c490",
-        },
+  useEffect(() => {
+    if (!_id) {
+      console.error("No album ID provided");
+      return;
+    }
+
+    console.log("Fetching album with ID:", _id); // Debug log
+
+    // Fetch album details
+    fetch(`https://academics.newtonschool.co/api/v1/music/album/${_id}`, {
+      headers: {
+        projectId: "f104bi07c490",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Album data:", data); // Debug log
+        const albumData = data.data; // Assuming album data is in data.data array
+        console.log("Album data after processing:", albumData); // Debug log
+        setAlbum(albumData);
+        setSongs(albumData.songs || []); // Ensure songs is an array
+
+        // Fetch artist details
+        if (albumData.artists && albumData.artists[0]) {
+          const artistId = albumData.artists[0]._id;
+          return fetch(
+            `https://academics.newtonschool.co/api/v1/music/artists/${artistId}`,
+            {
+              headers: {
+                projectId: "f104bi07c490",
+              },
+            }
+          );
+        } else {
+          throw new Error("Artist information is missing");
+        }
       })
       .then((response) => {
-        setData(response.data.data);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((artistData) => {
+        console.log("Artist data:", artistData); // Debug log
+        setArtist(artistData.data[0] || {}); // Assuming the artist data is in an array
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Fetch error:", error);
       });
-  };
+  }, [_id]);
 
-  const onMusicHandler = (index) => {
-    console.log(index);
-    let list = getData[index];
-    setMusic(list);
+  const handleFavorite = (songId) => {
+    // Add functionality to mark songs as favorites
+    // For example, update the state to indicate the song is a favorite
   };
 
   return (
-    <>
-      <div className="global-container">
-        <div className="left-sidebar">
-          <Sidebar />
-        </div>
-        <div className="right-sidebar">
-          <nav className="navbar navbar-expand-md navbar-light bg-black">
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <input
-                className="form-control mr-sm-2 "
-                type="search"
-                onChange={onSearchDetails}
-                placeholder="Search songs, albums, artist, podcasts"
-                aria-label="Search"
+    <div className="global-container">
+      <div className="left-sidebar">
+        <Sidebar />
+      </div>
+      <div className="right-sidebar">
+        <Navbar />
+
+        <div className="album-songs-container">
+          <div className="album-details">
+            <div>
+              <img
+                src={album.image}
+                alt="Album cover"
+                style={{ width: "264px", height: "264px" }}
               />
-              <li className="nav-item dropdown my-2 my-lg-0 left-nav">
-                <div
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {getName ? getName : "profile"}
-                </div>
-                <div className="dropdown-menu">
-                  {getToken && (
-                    <>
-                      <Link
-                        className="dropdown-item"
-                        onClick={logoutHandler}
-                        to="/login"
-                      >
-                        Logout
-                      </Link>
-                    </>
-                  )}
-
-                  {!getToken && (
-                    <>
-                      <Link className="dropdown-item" to="/login">
-                        Login
-                      </Link>
-                      <Link className="dropdown-item" to="/register">
-                        Register
-                      </Link>{" "}
-                    </>
-                  )}
-                </div>
-              </li>
             </div>
-          </nav>
-
-          <div className="album-songs-container">
-            <div className="album-details">
-              <div>
-                <img src={animal} style={{ width: "264px", height: "264px" }} />
+            <div className="album-name">
+              <h1>{album.title}</h1>
+              <p>Album • {album.name}</p>
+              <p>
+                {songs.length} songs • {album.duration}
+              </p>
+              <p>{album.description}</p>
+              <div className="album-btn">
+                <button className="btn-play">Play</button>
+                <button className="btn-library">Save to Library</button>
               </div>
-              <div className="album-name">
-                <h1>ANIMAL - HINDI</h1>
-                <p>Album • Various Artists • 2023</p>
-                <p>8 songs • 31 minutes</p>
-                <div className="album-btn">
-                  <button className="btn-play">
-                    lay
-                  </button>
-                  <button className="btn-library">save to library</button>
-                </div>
-              </div>
-            </div>
-            <div className="album-songs">
-              <p className="song-no">1</p>
-              <p className="song-name">Arjan Vailly</p>
-              <p className="song-artist">Bhupinder Babbal</p>
-              <p className="song-played">266M Plays</p>
-              <p className="song-time">2:30</p>
             </div>
           </div>
-
-          {/* <div className="music-container">
-            {getData.map((obj, index) => {
-              return (
-                <MusicCard
-                  key={index}
-                  title={obj.title}
-                  thumbnail={obj.thumbnail}
-                  artist={obj.artist}
-                  id={index}
-                  onMusicHandler={onMusicHandler}
-                />
-              );
-            })}
-          </div> */}
+         
+            {songs.length > 0 ? (
+              songs.map((song, index) => (
+                <div className="album-songs" key={song._id}>
+                  <p className="song-no">{index + 1}</p>
+                  <img
+                    src={song.thumbnail}
+                    height={"50"}
+                    width={"50"}
+                    className="bannerImg"
+                    onClick={() => onMusicHandler(song)}
+                  />
+                  {/* <img src={song.thumbnail} style={{width:"50px",height:"50px"}}/> */}
+                  <p className="song-name" >
+                    {song.title}
+                  </p>
+                  <p className="song-artist">{song.name}</p>
+                  <p className="song-played">{song.plays} Plays</p>
+                  <p className="song-time">{song.duration}</p>
+                  {/* <button onClick={() => handleFavorite(song._id)}>❤️</button> */}
+                </div>
+              ))
+            ) : (
+              <p>Loading songs...</p>
+            )}
+          
+          {getMusic && (
+            <MusicPlayer
+              title={getMusic.title}
+              thumbnail={getMusic.thumbnail}
+              artist={getMusic.artist}
+              songId={getMusic._id}
+              audio_url={getMusic.audio_url}
+            />
+          )}
         </div>
       </div>
-      {getMusic && (
-        <MusicPlayer
-          title={getMusic.title}
-          thumbnail={getMusic.thumbnail}
-          artist={getMusic.artist}
-          songId={getMusic._id}
-          audio_url={getMusic.audio_url}
-        />
-      )}
-    </>
+    </div>
   );
 }
-export default Home;
+
+export default AlbumSongs;

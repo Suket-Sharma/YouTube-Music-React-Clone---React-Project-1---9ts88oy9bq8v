@@ -13,7 +13,7 @@ function Sidebar() {
     <>
       <Link to="/">
       <MenuIcon
-              className="MenuIcon"
+              className="MenuIcon "
               fontSize="medium"
               style={{ fill: "white", stroke: "thin", alignItem: "left" }}
             />

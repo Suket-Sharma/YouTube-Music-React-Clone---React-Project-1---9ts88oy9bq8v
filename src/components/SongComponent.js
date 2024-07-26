@@ -48,7 +48,7 @@ function Home() {
   return (
     <>
       <div className="song-component-container">
-      <div className="user-name">
+      <div className="user-name" style={{margin:"30px"}}>
         <p>MUSIC TO GET YOU STARTED</p>
         <h3>WELCOME, SUKET</h3>
       </div>  

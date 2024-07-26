@@ -12,13 +12,13 @@ function Login() {
 
   const [getErr, setErr] = useState(null);
   const navigate = useNavigate();
-  const {onTokenHandler,onNameHandler} = useUser();
+  const {onTokenHandler,onNameHandler,setName} = useUser();
 
   const onChangeHandler = (event) => {
     setData({ ...getData, [event.target.name]: event.target.value });
   };
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     setErr(null);
      if (!getData.email) {
@@ -28,17 +28,33 @@ function Login() {
       setErr("Password  can not be empty");
       return;
     }
-    axios.post('https://academics.newtonschool.co/api/v1/user/login',getData, {
-            headers: {
-                projectID: 'f104bi07c490'
-            }
-        }).then((result) => {
-            onTokenHandler(result.data.token);
-            onNameHandler(result.data.data.name);
-            navigate('/');
-        }).catch((error) => {
-            setErr("internal server error please try after sometime");
-        })
+    try {
+      const result = await axios.post(
+        'https://academics.newtonschool.co/api/v1/user/login',
+        getData,
+        {
+          headers: {
+            projectID: 'f104bi07c490'
+          }
+        }
+      );
+      onTokenHandler(result.data.token);
+      // onNameHandler(result.data.user);
+      console.log("printing data.....",result)
+      setName(result.data.data.user.name);
+      navigate('/');
+    } catch (error) {
+      console.error("Login error:", error);
+      setErr("Internal server error. Please try again later.");
+    }
+        
+        // .then((result) => {
+        //     onTokenHandler(result.data.token);
+        //     onNameHandler(result.data.user.name);
+        //     navigate('/');
+        // }).catch((error) => {
+        //     setErr("internal server error please try after sometime");
+        // })
   }
 
   return (

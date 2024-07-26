@@ -30,7 +30,7 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/upgrade" element={<Upgrade/>}/>
         <Route path="/premiumplan" element={<PremiumPlan/>}/>
-        <Route path="/albumSongs" element={<AlbumSongs/>}/>
+        <Route path="/album/:_id" element={<AlbumSongs/>}/>
 
 
         <Route path="/library" element={
