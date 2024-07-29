@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Register() {
   const [getData, setData] = useState({
@@ -57,6 +58,7 @@ function Register() {
               <div className="form-group">
                 <label htmlFor="name">User Name</label>
                 <input
+                  style={{marginLeft:"0px"}}
                   type="text"
                   className="form-control"
                   name="name"
@@ -68,6 +70,7 @@ function Register() {
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
                 <input
+                  style={{marginLeft:"0px"}}
                   type="email"
                   className="form-control"
                   value={getData.email}
@@ -78,6 +81,7 @@ function Register() {
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
+                  style={{marginLeft:"0px"}}
                   type="password"
                   className="form-control"
                   value={getData.password}
@@ -88,6 +92,7 @@ function Register() {
               <div className="form-group">
                 <label htmlFor="appType">appType</label>
                 <select
+                  style={{marginLeft:"0px"}}
                   className="form-control"
                   value={getData.appType}
                   onChange={onChangeHandler}
@@ -100,6 +105,11 @@ function Register() {
               <button type="submit" className="btn btn-primary">
                 Register
               </button>
+              <Link  to="/login">
+                       <div>
+                       <a style={{color:"white"}}>Click here to Login</a>
+                       </div>
+              </Link>
             </form>
           </div>
           <div className="col-4"></div>

@@ -100,7 +100,7 @@ function PremiumPlan() {
         <div className="left-sidebar">
           <Sidebar />
         </div>
-        <div className="right-sidebar-plan">
+        <div className="right-sidebar">
           <nav className="navbar navbar-expand-md navbar-light bg-black">
             <div
               className="collapse navbar-collapse"

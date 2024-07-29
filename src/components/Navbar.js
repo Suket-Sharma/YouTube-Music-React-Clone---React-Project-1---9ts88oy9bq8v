@@ -29,7 +29,7 @@ function Navbar() {
               data-toggle="dropdown"
               aria-expanded="false"
             >
-              {getName?getName:"profile"}
+              {getName?getName:"Sign in"}
             </div>
             <div className="dropdown-menu">
               {getToken && <><Link className="dropdown-item" onClick={logoutHandler} to="/login">Logout</Link>

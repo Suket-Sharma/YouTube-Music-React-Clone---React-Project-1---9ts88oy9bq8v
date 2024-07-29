@@ -13,7 +13,7 @@ function OldSongs() {
   const fetchOldSongs = async () => {
     try {
       const response = await axios.get(
-        'https://academics.newtonschool.co/api/v1/music/song?filter={"mood":"romantic"}',
+        'https://academics.newtonschool.co/api/v1/music/song?filter=%7B%22mood%22%3A%22romantic%22%7D&limit=5',
         {
           headers: {
             projectID: "f104bi07c490",
@@ -39,25 +39,23 @@ function OldSongs() {
 
   return (
     <div>
-      <h2 style={{margin:"30px"}}>Old Songs</h2>
-      <div className="album-container d-flex flex-row ">
-        
-          {OldSongs?.map((songs) => (            
-            <div key={songs._id}>             
-              
-               
-                  <img
-                    src={songs.thumbnail}
-                    style={{ width: "150px", height: "150px", marginLeft: "30px" }}
-                  />
-                  <p className="artist-name" style={{ marginLeft: "30px" }}>{songs.title}</p>
-                  
-                
-              
+      <h2 style={{margin: "30px 0" }}>Romantic</h2>
+      <div className="album-music-container">
+        {OldSongs.map((album) => (
+          <div
+            className="album-MusicCard"
+          >
+            <img style={{width:"150px",height:"150px",borderRadius:"8px"}}
+              src={album.thumbnail}
+            />
+            <div className="album-music-title">{album.title}</div>
+            <div className="artist">
+              {/* {artistList} */}
             </div>
-          ))
-}
+          </div>
+        ))}
       </div>
+    
     </div>
   );
 }

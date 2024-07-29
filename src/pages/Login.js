@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import { useUser } from "../providers/UserProviders";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [getData, setData] = useState({
@@ -72,6 +73,7 @@ function Login() {
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
                 <input
+                  style={{marginLeft:"0px"}}
                   type="email"
                   className="form-control"
                   value={getData.email}
@@ -82,6 +84,7 @@ function Login() {
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
+                  style={{marginLeft:"0px"}}
                   type="password"
                   className="form-control"
                   value={getData.password}
@@ -92,6 +95,7 @@ function Login() {
               <div className="form-group">
                 <label htmlFor="appType">appType</label>
                 <select
+                  style={{marginLeft:"0px"}}
                   className="form-control"
                   value={getData.appType}
                   onChange={onChangeHandler}
@@ -104,6 +108,11 @@ function Login() {
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
+              <Link  to="/register">
+                       <div>
+                       <a style={{color:"white"}}>Click here to Register</a>
+                       </div>
+              </Link>
             </form>
           </div>
           <div className="col-4"></div>
