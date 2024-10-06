@@ -209,6 +209,7 @@ function Home() {
               </li>
             </div>
           </nav>
+          
 
           <div id="download" style={{ width: "100%" }}>
             <section>
@@ -245,6 +246,7 @@ function Home() {
               </button>
             </section>
           </div>
+          {/* <SadSongs/> */}
 
           <h2 style={{ margin: "30px" }}>New Release</h2>
           <div className="music-container">
@@ -266,7 +268,7 @@ function Home() {
             
             
           </div>
-          <SadSongs/>
+          
           <SongComponent />
           <h1 style={{height:"100px"}}></h1>
           

@@ -10,7 +10,7 @@ function SadSongCarousel({ album,index }) {
           <div>
             
             {/* {albums.map((album, index) => ( */}
-              <div  className='container' key={index} style={{ width: "150px", height: "200px",textAlign:"left" }} >
+              <div  className='container-carousel' key={index} style={{ width: "150px", height: "100px",textAlign:"left" }} >
                 <img src={album.thumbnail} style={{ width: "150px", height: "150px" }} alt={album.title} />
 
                 <div style={{ fontSize:"16px",overflow:"hidden",textOverflow:"ellipsis",fontFamily:"roboto,sans",fontWeight:"700",color:"grey"}}>{album.title}</div>
