@@ -10,8 +10,8 @@ import youtube1 from "../images/youtube1.png";
 
 function PremiumPlan() {
   const [getData, setData] = useState([]);
-  const [getMusic, setMusic] = useState(null);
-  const { getToken, getName, onTokenHandler, onNameHandler } = useUser();
+  // const [getMusic, setMusic] = useState(null);
+  const { getToken, getName, onTokenHandler, onNameHandler,getMusic,setMusic } = useUser();
   const [getSearch, setSearch] = useState("");
   const [getOriginalData, setOriginalData] = useState([]);
 

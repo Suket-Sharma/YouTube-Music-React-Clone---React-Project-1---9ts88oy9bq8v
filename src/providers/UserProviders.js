@@ -7,7 +7,7 @@ export const UserProvider = ({children})=>{
     
     const [getToken,setToken] = useState(sessionStorage.getItem('token'));
     const [getName,setName] = useState(sessionStorage.getItem('name'));
-
+    const [getMusic, setMusic] = useState(null);
     const onTokenHandler=(data)=>{
           setToken(data);
           sessionStorage.setItem('token',data);
@@ -23,7 +23,9 @@ export const UserProvider = ({children})=>{
         getName,
         setName,
         onTokenHandler,
-        onNameHandler
+        onNameHandler,
+        getMusic,
+        setMusic
     }
 
 

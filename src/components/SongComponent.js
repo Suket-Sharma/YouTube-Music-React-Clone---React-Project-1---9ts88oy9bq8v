@@ -9,7 +9,8 @@ import SongMusicCard from "./SongMusicCard";
 
 function Home() {
   const [getData, setData] = useState([]);
-  const [getMusic, setMusic] = useState(null);
+  // const [getMusic, setMusic] = useState(null);
+  const {getMusic,setMusic} = useUser();
   
  
   const [getOriginalData, setOriginalData] = useState([]);
@@ -69,7 +70,7 @@ function Home() {
           </div>
         </div>
       
-      {getMusic && (
+      {/* {getMusic && (
         <MusicPlayer
           title={getMusic.title}
           thumbnail={getMusic.thumbnail}
@@ -77,7 +78,7 @@ function Home() {
           songId={getMusic._id}
           audio_url={getMusic.audio_url}
         />
-      )}
+      )} */}
     </>
   );
 }

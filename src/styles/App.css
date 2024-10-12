@@ -130,6 +130,7 @@ body {
 
 /*--Right sidebar begins--*/
 .right-sidebar {
+  overflow: hidden !important;
   width: 80%;
   background-color: #030303;
   background-image: linear-gradient(to right,grey,--third-color);

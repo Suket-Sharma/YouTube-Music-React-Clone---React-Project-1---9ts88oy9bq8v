@@ -13,8 +13,8 @@ function AlbumSongs() {
   const [album, setAlbum] = useState({});
   const [songs, setSongs] = useState([]);
   const [artist, setArtist] = useState({});
-  const [getMusic, setMusic] = useState(null);
-  const { getToken, getName, onTokenHandler, onNameHandler } = useUser();
+  // const [getMusic, setMusic] = useState(null);
+  const { getToken, getName, onTokenHandler, onNameHandler,getMusic,setMusic } = useUser();
 
   const logoutHandler = () => {
     onTokenHandler(null);
@@ -147,7 +147,7 @@ function AlbumSongs() {
               <p>Loading songs...</p>
             )}
           
-          {getMusic && (
+          {/* {getMusic && (
             <MusicPlayer
               title={getMusic.title}
               thumbnail={getMusic.thumbnail}
@@ -155,7 +155,7 @@ function AlbumSongs() {
               songId={getMusic._id}
               audio_url={getMusic.audio_url}
             />
-          )}
+          )} */}
         </div>
       </div>
     </div>

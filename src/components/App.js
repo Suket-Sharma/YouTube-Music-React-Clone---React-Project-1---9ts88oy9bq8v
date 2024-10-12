@@ -9,10 +9,10 @@ import { useUser } from "../providers/UserProviders";
 import Upgrade from "../pages/Upgrade";
 import PremiumPlan from "../pages/PremiumPlan";
 import AlbumSongs from "../pages/albumSongs";
-
+import { MusicPlayer } from "../components/MusicPlayer";
 function App() {
 
-  const {getToken} = useUser();
+  const {getToken,getMusic} = useUser();
   function ProtectedRoute({children}){
     if(getToken){
       return children;
@@ -40,6 +40,15 @@ function App() {
         } />
       </Routes>
     </BrowserRouter>
+    {getMusic && (
+        <MusicPlayer
+          title={getMusic.title}
+          thumbnail={getMusic.thumbnail}
+          artist={getMusic.artist}
+          songId={getMusic._id}
+          audio_url={getMusic.audio_url}
+        />
+      )}
   </>
   )
   
