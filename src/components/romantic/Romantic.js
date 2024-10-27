@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import '../SadSongs/SadSongs.css';
-import SadSongCarousel from "../SadSongs/SadSongCarousel"; 
+import '../romantic/Romantic.css';
+import RomanticCarousel from "../romantic/RomanticCarousel"; 
+
 // Import the CSS file here
 
 const CustomLeftArrow = ({ onClick }) => (
@@ -17,12 +18,12 @@ const CustomRightArrow = ({ onClick }) => (
   </button>
 );
 
-function SadSongs() {
+function Romantic() {
   const [albums, setAlbums] = useState([]);
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    fetch('https://academics.newtonschool.co/api/v1/music/song?filter=%7B%22mood%22%3A%22sad%22%7D', {
+    fetch('https://academics.newtonschool.co/api/v1/music/song?filter=%7B%22mood%22%3A%22romantic%22%7D', {
       headers: {
         'projectId': 'f104bi07c490'
       }
@@ -65,7 +66,7 @@ function SadSongs() {
   return (
     <div className="App">
       <div style={{ position: 'relative' }}>
-        <h1 style={{ textAlign: 'left' , marginLeft:"45px",marginTop:"45px",fontFamily: 'Roboto',fontSize:'2rem' }}>Sad Songs</h1>
+        <h1 style={{ textAlign: 'left' , marginLeft:"45px",marginTop:"45px",fontFamily: 'Roboto',fontSize:'2rem' }}>Romantic Songs</h1>
         <div className="custom-arrow-container">
           <CustomLeftArrow onClick={handleLeftArrowClick} />
           <CustomRightArrow onClick={handleRightArrowClick} />
@@ -79,7 +80,7 @@ function SadSongs() {
           customRightArrow={<CustomRightArrow />}
         >
           {albums.map((album, index) => (
-            <SadSongCarousel key={index} album={album} 
+            <RomanticCarousel key={index} album={album} 
             
             />
             
@@ -90,4 +91,4 @@ function SadSongs() {
   );
 }
 
-export default SadSongs;
+export default Romantic;

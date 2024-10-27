@@ -1,0 +1,122 @@
+/*-- Upgrade Page begins-- */
+
+.upgrade-Navbar {
+  width: 100%;
+  height: 64px;
+  background-color: var(--primary-color);
+}
+.upgrade-section1 {
+  width: 100%;
+  height: 630px;
+  background-color: #3d3d3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.yt-logo {
+  font-size: 70px;
+  font-family: Roboto, Noto Naskh Arabic UI, Arial, sans-serif;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+.upgrade-section1 .get-music {
+  margin-bottom: 30px;
+}
+.upgrade-section1 .get-music p {
+  font-size: 30px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.upgrade-section1 .premium-btn {
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: rgb(97, 175, 231);
+  border: none;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.upgrade-section1 .premium-plan p {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+.upgrade-section1 p span {
+  font-size: 15px;
+  font-weight: bold;
+}
+.upgrade-section1 .learn-more {
+  margin-top: 20px;
+}
+.upgrade-section1 span {
+  color: rgb(97, 175, 231);
+}
+
+.upgrade-section2 {
+  width: 100%;
+  height: 262px;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 10px;
+  gap: 15px;
+  text-align: center;
+}
+
+.upgrade-section2 .one {
+  width: 100%;
+  height: 100px;
+}
+.upgrade-section2 .two {
+  width: 100%;
+  height: 80px;
+}
+.upgrade-section2 .three {
+  width: 100%;
+  height: 72px;
+}
+
+.upgrade-section3 {
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+.upgrade-section3 .text {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  color: #3d3d3d;
+}
+.upgrade-section3 img {
+  width: 100%;
+  height: 100%;
+}
+
+.upgrade-section6 {
+  width: 100%;
+  height: 262px;
+  background-color: var(--primary-color);
+}
+.upgrade-section6 p {
+  padding-top: 80px;
+  padding-left: 300px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+.upgrade-section6 span {
+  color: rgb(49, 49, 218);
+}
+
+.right-sidebar-plan {
+  width: 80%;
+  background-color: var(--primary-color);
+}
+
+/*-- Upgrade Page Ends-- */

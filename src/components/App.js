@@ -10,6 +10,9 @@ import Upgrade from "../pages/Upgrade";
 import PremiumPlan from "../pages/PremiumPlan";
 import AlbumSongs from "../pages/albumSongs";
 import { MusicPlayer } from "../components/MusicPlayer";
+import "../styles/RightSidebar.css";
+import UnderConstruction from "./UnderConstruction";
+
 function App() {
 
   const {getToken,getMusic} = useUser();
@@ -31,6 +34,7 @@ function App() {
         <Route path="/upgrade" element={<Upgrade/>}/>
         <Route path="/premiumplan" element={<PremiumPlan/>}/>
         <Route path="/album/:_id" element={<AlbumSongs/>}/>
+        <Route path="/underconstruction" element={<UnderConstruction />} />
 
 
         <Route path="/library" element={

@@ -1,3 +1,5 @@
+import "../styles/SongMusicCard.css"
+
 function SongMusicCard(props) {
   const {title,thumbnail,artist,id,onMusicHandler} = props;
 

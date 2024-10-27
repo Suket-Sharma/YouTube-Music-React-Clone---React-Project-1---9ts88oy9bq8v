@@ -1,0 +1,87 @@
+/*-- Left sidebar CSS--*/
+
+.left-sidebar {
+  width: 18%;
+  border-right: 0.5px solid #aaaaaa;
+  background-color: var(--third-color);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.top-music {
+  width: 80%;
+}
+.MenuIcon {
+  margin: 0 20px;
+}
+.PlayCircleOutlineIcon {
+  padding: 5px;
+  font-size: 24px;
+}
+.HomeRoundedIcon {
+  margin: 0 20px;
+}
+.ExploreOutlinedIcon {
+  margin: 0 20px;
+}
+.LibraryMusicOutlinedIcon {
+  margin: 0 20px;
+}
+.PlayCircleOutlineSharpIcon {
+  margin: 0 20px;
+}
+.span-music {
+  font-size: 24px;
+  margin: 0 5px;
+  color: var(--text-color);
+}
+
+.left-sidebar .list-group-item {
+  background-color: var(--third-color);
+  border: none;
+  text-align: left;
+}
+.left-sidebar .list-group-item:hover {
+  background-color: #3d3d3d;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.left-sidebar ul {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--secondary-color);
+}
+.left-sidebar .list-group-item span {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+.newPlaylist {
+  width: 80%;
+  border-radius: 20px;
+  background-color: #3d3d3d;
+  margin: 30px 20px;
+  text-align: center;
+}
+.likedMusic,
+.Episodes-for-later {
+  margin-left: 20px;
+}
+.likedMusic h5,
+.Episodes-for-later h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.likedMusic p,
+.Episodes-for-later p {
+  font-size: 12px;
+  color: #aaaaaa;
+  font-weight: 400;
+}
+
+/*--Left sidebar ends--*/

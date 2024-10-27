@@ -36,13 +36,16 @@ function AlbumPage() {
 
   return (
     <div>
-      <h2 style={{margin: "30px 0" }}>My albums</h2>
-      <div className="album-music-container">
+      <h2 style={{marginTop: "30px",marginLeft:"50px" }}>My albums</h2>
+      <div className="album-music-container"
+        style={{marginLeft:"50px" }}
+      >
         {albums.map((album) => (
           <div
             className="album-MusicCard"
             onClick={() => navigate(`/album/${album._id}`)}
             key={album._id}
+            
           >
             <img style={{width:"150px",height:"150px",borderRadius:"8px"}}
               src={album.image}

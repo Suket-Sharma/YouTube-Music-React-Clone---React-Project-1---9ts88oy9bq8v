@@ -11,21 +11,14 @@ import AlbumPage from "../components/album";
 import animal from "../images/animal.jpg";
 import OldSongs from "../components/OldSongs";
 import SadSongs from "../components/SadSongs/SadSongs";
-import Top20 from "../components/Top20/Top20";
-import Top50 from "../components/Top50/Top50";
-import UnderConstruction from "../components/UnderConstruction";
-import Romantic from "../components/romantic/Romantic";
-import Trending from "../components/Trending/Trending";
-import Albums from "../components/Albums/Albums";
-import PremiumPlan from "./PremiumPlan";
+import '../styles/UnderConstruction.css'
 
-function Home() {
+function UnderConstruction() {
   const [getData, setData] = useState([]);
   // const [getMusic, setMusic] = useState(null);
   const { getToken, getName, onTokenHandler, onNameHandler ,getMusic,setMusic} = useUser();
   const [getSearch, setSearch] = useState("");
   const [getOriginalData, setOriginalData] = useState([]);
-  const [showMessage, setShowMessage] = useState(false);
   const logoutHandler = () => {
     onTokenHandler(null);
     onNameHandler(null);
@@ -33,64 +26,35 @@ function Home() {
     localStorage.removeItem("name");
   };
 
-   // Function to handle dead clicks
-  const handleDeadClick = () => {
-    setShowMessage(true);
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 2000);
-  }; 
-
   useEffect(() => {
     musicList();
   }, []);
 
   const musicList = async () => {
-    // try {
-    //   const response = await axios.get(
-    //     "https://academics.newtonschool.co/api/v1/music/song?limit=5",
-    //     {
-    //       headers: {
-    //         projectID: "f104bi07c490",
-    //       },
-    //     }
-    //   );
-    //   console.log(response.data.data);
-    //   setData(response.data.data);
-    //   setOriginalData(response.data.data);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      const response = await axios.get(
+        "https://academics.newtonschool.co/api/v1/music/song?limit=5",
+        {
+          headers: {
+            projectID: "f104bi07c490",
+          },
+        }
+      );
+      console.log(response.data.data);
+      setData(response.data.data);
+      setOriginalData(response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onFilterSelection = async (input) => {
     console.log(input);
     let url;
-    let moodInput;
-
-    let featuredInput;
-
-    let queryString = {};
-
-    if (input == 'Trending songs' || input=='Top 50 of this month'|| input=='Top 20 of this week'|| input=='Soul soother'|| input=='Evergreen melodies') {
-
-    featuredInput = input;
-
-    queryString.featured = input;
-
-    } else {
-
-    moodInput = input;
-
-    queryString.mood = input;
-
-    }
-    // const queryString = {
+    const queryString = {
+      featured: input,
       
-    //   mood:input,
-      
-      
-    // };
+    };
     axios
       .get("https://academics.newtonschool.co/api/v1/music/song", {
         params: {
@@ -136,7 +100,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <>
       <div className="global-container">
         <div className="left-sidebar">
           <Sidebar />
@@ -160,7 +124,7 @@ function Home() {
                     {getName ? getName : "Sign in"}
                   
                 </Link>
-                <div className="dropdown" style={{zIndex:"1"}}>
+                <div className="dropdown">
                   {getToken && (
                     <>
                       {/* <button class="dropdown-button signin">
@@ -173,7 +137,7 @@ function Home() {
                             <span>{getName ? getName : "Sign in"}</span>
                             <p>@12356789</p>
                             <i class="fas fa-cog"></i>
-                            <a style={{color:"blue"}} href="#" onClick={handleDeadClick}>Manage Google Account</a>
+                            <a style={{color:"blue"}} href="#">Manage Google Account</a>
                           </div>
                           {/* <!-- <div class="item">
           
@@ -182,7 +146,7 @@ function Home() {
                         <div class="section2">
                           <div class="item">
                             <i class="fas fa-tv"></i>
-                            <span onClick={handleDeadClick}>Your Channel</span>
+                            <span>Your Channel</span>
                           </div>
                           <div class="item">
                             <i class="fas fa-music"></i>
@@ -190,10 +154,7 @@ function Home() {
                           </div>
                           <div class="item">
                             <i class="fas fa-exchange-alt"></i>
-                            <span onClick={handleDeadClick}  // Trigger message on dead click
-                            >Switch Account
-                            
-                            </span>
+                            <span>Switch Account</span>
                           </div>
                           <div class="item">
                             <i class="fas fa-sign-out-alt"></i>
@@ -209,27 +170,27 @@ function Home() {
                         <div class="section3">
                           <div class="item">
                             <i class="fas fa-upload"></i>
-                            <span onClick={handleDeadClick}>Upload Music</span>
+                            <span>Upload Music</span>
                           </div>
                           <div class="item">
                             <i class="fas fa-history"></i>
-                            <span onClick={handleDeadClick}>History</span>
+                            <span>History</span>
                           </div>
                           <div class="item">
                             <i class="fas fa-cog"></i>
-                            <span onClick={handleDeadClick}>Settings</span>
+                            <span>Settings</span>
                           </div>
                           <div class="item">
                             <i class="fas fa-file-alt"></i>
-                            <span onClick={handleDeadClick}>Terms and Privacy Policy</span>
+                            <span>Terms and Privacy Policy</span>
                           </div>
                           <div class="item">
                             <i class="fas fa-question-circle"></i>
-                            <span onClick={handleDeadClick}>Help</span>
+                            <span>Help</span>
                           </div>
                           <div class="item">
                             <i class="fas fa-envelope"></i>
-                            <span onClick={handleDeadClick}>Send Feedback</span>
+                            <span>Send Feedback</span>
                           </div>
                         </div>
                       </div>
@@ -249,7 +210,8 @@ function Home() {
                 </div>
               </li>
             </div>
-          </nav>         
+          </nav>
+          
 
           <div id="download" style={{ width: "100%" }}>
             <section>
@@ -292,7 +254,7 @@ function Home() {
               {/* </Link> */}
               {/* <Link to='/underconstruction' > */}
                 <button onClick={() => onFilterSelection("sad")}>
-                Ever Green                
+                Podcast                
                 </button>
               {/* </Link> */}
               {/* <Link to='/underconstruction' > */}
@@ -301,53 +263,26 @@ function Home() {
                 </button>
               {/* </Link> */}
             </section>
-          </div>         
-          
-          <div className="music-container">
-            {getData.map((obj, index) => {
-              return (
-                <MusicCard
-                  key={index}
-                  title={obj.title}
-                  thumbnail={obj.thumbnail}
-                  artist={obj.artist}
-                  id={index}
-                  onMusicHandler={onMusicHandler}
-                />
-              );
-            })} 
-            {getMusic && (
-            <MusicPlayer
-              title={getMusic.title}
-              thumbnail={getMusic.thumbnail}
-              artist={getMusic.artist}
-              songId={getMusic._id}
-              audio_url={getMusic.audio_url}
-            />
-            )}  
-          </div>   
-          <Trending/>          
-          <Top20/>
-          <Top50/>
-          <Romantic/>
-          <SadSongs/>  
-          <Albums/>          
-          {/* <AlbumPage /> */}
-          <SongComponent />     
-          
-            
-             
-                   
+          </div>
+          <div id="under_construction">
+            <div className="construction_text">
+                <h1>
+                    This page is under construction.
+                </h1>
+                <small>
+                    please check later for more updates
+                </small>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Side window for "Coming Soon" message */}
-      {showMessage && (
-        <div className="side-window">
-          <p>Feature Coming Soon!</p>
-        </div>
-      )}
-    </div>
+         
+            
+    </>
   );
 }
-export default Home;
+
+export default  UnderConstruction;
+
+

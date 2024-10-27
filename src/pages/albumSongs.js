@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import axios from "axios";
 import { useUser } from "../providers/UserProviders";
 import { MusicPlayer } from "../components/MusicPlayer";
+import "../styles/albumSongs.css";
 
 function AlbumSongs() {
   const [getList, setList] = useState([]);
@@ -19,8 +20,8 @@ function AlbumSongs() {
   const logoutHandler = () => {
     onTokenHandler(null);
     onNameHandler(null);
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("name");
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
   };
 
   const onMusicHandler = (song) => {

@@ -4,9 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useUser } from "../../providers/UserProviders";
-import { MusicPlayer } from "../../components/MusicPlayer";
+import { MusicPlayer } from "../MusicPlayer";
 
-function SadSongCarousel({ album, index }) {
+
+function Top20Carousel({ album, index }) {
   const artistList = album.artist.map((item) => item.name).join(" & ");
   const { getToken, getName, onTokenHandler, onNameHandler,getMusic,setMusic } = useUser();
 
@@ -80,7 +81,7 @@ function SadSongCarousel({ album, index }) {
   );
 };
 
-export default SadSongCarousel;
+export default Top20Carousel;
 
 // // AlbumList.js
 // import React, { useEffect, useState } from 'react';

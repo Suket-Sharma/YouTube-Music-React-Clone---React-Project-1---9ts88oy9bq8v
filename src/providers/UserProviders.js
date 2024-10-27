@@ -5,17 +5,17 @@ const UserContext = createContext();
 
 export const UserProvider = ({children})=>{
     
-    const [getToken,setToken] = useState(sessionStorage.getItem('token'));
-    const [getName,setName] = useState(sessionStorage.getItem('name'));
+    const [getToken,setToken] = useState(localStorage.getItem('token'));
+    const [getName,setName] = useState(localStorage.getItem('name'));
     const [getMusic, setMusic] = useState(null);
     const onTokenHandler=(data)=>{
           setToken(data);
-          sessionStorage.setItem('token',data);
+          localStorage.setItem('token',data);
     }
 
     const onNameHandler=(data)=>{
           setName(data);
-          sessionStorage.setItem('name',data);
+          localStorage.setItem('name',data);
     }
 
     const object={

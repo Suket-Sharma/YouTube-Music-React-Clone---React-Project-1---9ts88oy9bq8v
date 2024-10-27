@@ -6,8 +6,8 @@ function Navbar() {
   const logoutHandler=()=>{
     onTokenHandler(null);
     onNameHandler(null);
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('name');
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
   }
   
   return (

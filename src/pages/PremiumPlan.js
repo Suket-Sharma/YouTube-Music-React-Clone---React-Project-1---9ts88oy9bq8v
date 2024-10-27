@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import { useUser } from "../providers/UserProviders";
 import { Link } from "react-router-dom";
 import youtube1 from "../images/youtube1.png";
+import "../styles/PremiumPlan.css";
 
 function PremiumPlan() {
   const [getData, setData] = useState([]);
@@ -18,8 +19,8 @@ function PremiumPlan() {
   const logoutHandler = () => {
     onTokenHandler(null);
     onNameHandler(null);
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("name");
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
   };
 
   useEffect(() => {

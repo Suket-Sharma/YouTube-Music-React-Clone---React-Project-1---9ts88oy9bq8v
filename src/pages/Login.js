@@ -33,6 +33,7 @@ function Login() {
       const result = await axios.post(
         'https://academics.newtonschool.co/api/v1/user/login',
         getData,
+
         {
           headers: {
             projectID: 'f104bi07c490'
@@ -42,6 +43,7 @@ function Login() {
       onTokenHandler(result.data.token);
       // onNameHandler(result.data.user);
       console.log("printing data.....",result)
+      localStorage.setItem("name",result.data.data.user.name)
       setName(result.data.data.user.name);
       navigate('/');
     } catch (error) {

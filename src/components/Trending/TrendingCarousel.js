@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { useUser } from "../../providers/UserProviders";
 import { MusicPlayer } from "../../components/MusicPlayer";
 
-function SadSongCarousel({ album, index }) {
+function TrendingCarousel({ album, index }) {
   const artistList = album.artist.map((item) => item.name).join(" & ");
   const { getToken, getName, onTokenHandler, onNameHandler,getMusic,setMusic } = useUser();
 
@@ -80,7 +80,7 @@ function SadSongCarousel({ album, index }) {
   );
 };
 
-export default SadSongCarousel;
+export default TrendingCarousel;
 
 // // AlbumList.js
 // import React, { useEffect, useState } from 'react';

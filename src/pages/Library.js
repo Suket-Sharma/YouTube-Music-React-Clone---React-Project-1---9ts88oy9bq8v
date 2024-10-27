@@ -3,10 +3,18 @@ import Navbar from "../components/Navbar";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useUser } from "../providers/UserProviders";
+import { MusicPlayer } from "../components/MusicPlayer";
 
 function Library() {
-  const { getToken } = useUser();
+  
   const [getList, setList] = useState([]);
+  const { getToken, getName, onTokenHandler, onNameHandler,getMusic,setMusic } = useUser();
+
+  const onMusicHandler = (obj) => {
+    // console.log(index);
+    // let list = getData[index];
+    setMusic(obj);
+  };
 
   useEffect(() => {
     listOfLibrary();
@@ -56,15 +64,21 @@ function Library() {
         </div>
         <div className="right-sidebar">
           <Navbar />
-          <div className="music-container">
+          <div className="music-container-L">
+          <div className="user-name" >
+    <p>WELCOME {getName}  </p>
+    <h3>MUSIC YOU LIKE ❤</h3>
+  </div>
+            <div className="music-content">
             {getList.map((obj, index) => {
               return (
-                <div key={index} className="musicCard">
+                <div key={index} className="musicCard"  style={{paddingLeft:"50px"}}>
                     <img
                       src={obj.thumbnail}
                       height={"150"}
                       width={"150"}
                       className="bannerImg"
+                      onClick={() => onMusicHandler(obj)}
                     />
                   <div className="music-title">
                     {obj.title}{" "}
@@ -76,6 +90,8 @@ function Library() {
                 </div>
               );
             })}
+            </div>
+            
           </div>
         </div>
       </div>

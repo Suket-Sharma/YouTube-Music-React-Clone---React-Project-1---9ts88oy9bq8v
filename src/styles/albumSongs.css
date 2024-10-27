@@ -1,0 +1,74 @@
+/*--Album songs Page Begins--*/
+
+.album-songs-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.album-details {
+  padding-top: 10%;
+  display: flex;
+}
+.album-name {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.album-name p,
+h {
+  margin: 0;
+  padding: 0;
+}
+.album-songs {
+  display: flex;
+  margin-top: 40px;
+  gap: 10%;
+  cursor: pointer;
+  border-bottom:1px lightgray;
+}
+.album-songs img{
+  margin-bottom:10px;
+}
+.song-name{
+  width: 20%;
+}
+.album-btn {
+  margin-top: 30px;
+  border-radius: 60px;
+}
+.btn-play,
+.btn-library {
+  border-radius: 60px;
+  padding: 5px 10px;
+  border: none;
+  background-color: white;
+}
+.btn-library {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  font-weight: 700;
+}
+.album-songs-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.album-details {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.album-details img {
+  width: 264px;
+  height: 264px;
+  margin-right: 20px;
+}
+
+.album-name {
+  display: flex;
+  flex-direction: column
+}
+
+/*--Album songs Page Ends--*/

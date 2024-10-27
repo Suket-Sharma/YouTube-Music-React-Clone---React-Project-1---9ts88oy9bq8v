@@ -6,6 +6,7 @@ import DownloadForOfflineOutlinedIcon from '@mui/icons-material/DownloadForOffli
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import students from "../images/students.jpg";
 import { Link } from "react-router-dom";
+import "../styles/Upgrade.css";
 
 function Upgrade() {
   return (

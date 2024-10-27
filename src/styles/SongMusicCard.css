@@ -1,0 +1,40 @@
+.songMusicCard {
+  display: flex;
+  height: 50px;
+  width: 48%;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.songMusicCrad .song-artist {
+  font-size: 14px;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.songMusicCrad .song-music-title {
+  font-size: 16px;
+}
+.song-img,
+.music-artist {
+  margin: 0;
+  padding: 5px;
+}
+.user-name {
+  align-items: left;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .songMusicCard {
+    display: flex;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  }
+  
+}

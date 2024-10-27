@@ -5,15 +5,20 @@ import { MusicPlayer } from "../components/MusicPlayer";
 import { useUser } from "../providers/UserProviders";
 import { Link } from "react-router-dom";
 import SongMusicCard from "./SongMusicCard";
+import "../styles/SongComponent.css";
 
 
 function Home() {
   const [getData, setData] = useState([]);
-  // const [getMusic, setMusic] = useState(null);
-  const {getMusic,setMusic} = useUser();
-  
- 
+  // const [getMusic, setMusic] = useState(null);  
+  const { getToken, getName, onTokenHandler, onNameHandler ,getMusic,setMusic} = useUser();
   const [getOriginalData, setOriginalData] = useState([]);
+  const logoutHandler = () => {
+    onTokenHandler(null);
+    onNameHandler(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+  };
  
 
   useEffect(() => {
@@ -48,7 +53,7 @@ function Home() {
 
   return (
     <>
-      <div className="song-component-container">
+      {/* <div className="song-component-container">
       <div className="user-name" style={{margin:"30px"}}>
         <p>MUSIC TO GET YOU STARTED</p>
         <h3>WELCOME, SUKET</h3>
@@ -68,7 +73,32 @@ function Home() {
               );
             })}
           </div>
-        </div>
+        </div> */}
+        <div className="song-component-container">
+  <div className="user-name" >
+    <p>MUSIC TO GET YOU STARTED</p>
+    <h3>WELCOME {getName}</h3>
+  </div>
+
+  <div className="music-container" >
+    <div className="music-content" style={{marginBottom:"50px"}}>
+      {getData.map((obj, index) => {
+        return (
+          <SongMusicCard
+            key={index}
+            title={obj.title}
+            thumbnail={obj.thumbnail}
+            artist={obj.artist}
+            id={index}
+            onMusicHandler={onMusicHandler}
+          />
+        );
+      })}
+    </div>
+   
+  </div>
+</div>
+
       
       {/* {getMusic && (
         <MusicPlayer
